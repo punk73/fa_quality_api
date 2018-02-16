@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c92fb953bfbe875836f11024b2a632f",
+    "content-hash": "20b18a30cb70fddfdba655cdd475f1b7",
     "packages": [
         {
             "name": "barryvdh/laravel-cors",
@@ -419,6 +419,46 @@
                 "parser"
             ],
             "time": "2016-11-02T15:56:58+00:00"
+        },
+        {
+            "name": "jacquestvanzuydam/laravel-firebird",
+            "version": "dev-5.4-support",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jacquestvanzuydam/laravel-firebird.git",
+                "reference": "ba242f8d4c3b360cd0fbb50a069b71e79687933f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jacquestvanzuydam/laravel-firebird/zipball/ba242f8d4c3b360cd0fbb50a069b71e79687933f",
+                "reference": "ba242f8d4c3b360cd0fbb50a069b71e79687933f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "~5.4",
+                "illuminate/database": "~5.4",
+                "illuminate/events": "~5.4",
+                "illuminate/support": "~5.4",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Firebird\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacques van Zuydam",
+                    "email": "jtvanzuydam@gmail.com"
+                }
+            ],
+            "description": "A Firebird database package for the Laravel Framework",
+            "time": "2017-02-22T09:50:44+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3664,7 +3704,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dingo/api": 20
+        "dingo/api": 20,
+        "jacquestvanzuydam/laravel-firebird": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
