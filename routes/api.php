@@ -39,5 +39,10 @@ $api->version('v1', function (Router $api) {
 
     Route::get('test-db', 'QualityController@testDB' );
     Route::get('phpinfo', 'QualityController@getPhpInfo' );
+    //route for daily outputs
+    Route::prefix('qualities')->group(function(){
+        Route::get('/', 'QualityController@index' );
+
+    });
          
 });
