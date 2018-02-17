@@ -150,4 +150,25 @@ class QualityController extends Controller
 		];
 		//return (array) $Quality;
 	}
+
+	public function data(Request $request){
+		$data = $this->index($request);
+		//return $data;
+		$result =[];
+		foreach ($data['line'] as $key => $value) {
+			foreach ($value as $kunci => $val) {
+				$val['shift'] = str_replace(' ', '', $kunci );
+				$val['line_name'] = str_replace(' ', '', $key );
+				$result[] = $val;
+			}
+
+		}
+
+		return[
+			'message' 	=> 'OK',
+			'count'		=> count($result),
+			'data' 		=> $result
+		];
+	}
+
 }

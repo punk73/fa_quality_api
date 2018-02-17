@@ -42,7 +42,7 @@ $api->version('v1', function (Router $api) {
     //route for daily outputs
     Route::prefix('qualities')->group(function(){
         Route::get('/', 'QualityController@index' );
-
+        Route::get('/data', 'QualityController@data' );
     });
          
 });
