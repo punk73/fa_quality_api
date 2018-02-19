@@ -48,6 +48,17 @@ class QualityController extends Controller
 			'QTY_REJECT'
 		);
 
+		if (isset($request->tanggal)) {
+			# code...
+			$tanggal = $request->tanggal;
+			$tmp = explode('-', $tanggal);
+			
+			$request->year = $tmp[0];
+			$request->month = $tmp[1];
+			$request->date = $tmp[2];
+
+		}
+
 		if (isset($request->date)) {
 			# code...
 			$Quality = $Quality->where('DATE001', $request->date );
@@ -210,9 +221,12 @@ class QualityController extends Controller
 
 		foreach ($total as $key => $value) {
 			# code...
-			$tmp['name'] = $key;
-			$tmp['total'] = $value;
-			$result[] = $tmp;
+			if ($value != 0) {
+				# code...
+				$tmp['name'] = $key;
+				$tmp['total'] = $value;
+				$result[] = $tmp;
+			}
 		}
 
 		return [
