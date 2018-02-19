@@ -40,4 +40,16 @@ $api->version('v1', function (Router $api) {
             'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'
         ]);
     });
+
+    Route::get('test-db', 'QualityController@testDB' );
+    Route::get('phpinfo', 'QualityController@getPhpInfo' );
+    //route for daily outputs
+    Route::prefix('qualities')->group(function(){
+        Route::get('/', 'QualityController@data' );
+        Route::get('/raw', 'QualityController@index' );
+        Route::get('/dic', 'QualityController@getDIC' );
+
+
+    });
+         
 });
