@@ -171,4 +171,55 @@ class QualityController extends Controller
 		];
 	}
 
+	public function getDIC(Request $request){
+		$data = $this->data($request);
+		$SMT = 0;
+		$PCB_CODE = 0;
+		$DESIGN_CODE = 0;
+		$MECHANISM_CODE = 0;
+		$ELECTRICAL_CODE = 0;
+		$MECHANICAL_CODE = 0;
+		$FINAL_ASSY_CODE = 0;
+		$OTHERS_CODE = 0;
+
+		foreach ($data['data'] as $key => $value) {
+			# code...
+			$SMT = $SMT + $value['SMT'];
+			$PCB_CODE = $PCB_CODE + $value['PCB_CODE'];
+			$DESIGN_CODE = $DESIGN_CODE + $value['DESIGN_CODE'];
+			$MECHANISM_CODE = $MECHANISM_CODE + $value['MECHANISM_CODE'];
+			$ELECTRICAL_CODE = $ELECTRICAL_CODE + $value['ELECTRICAL_CODE'];
+			$MECHANICAL_CODE = $MECHANICAL_CODE + $value['MECHANICAL_CODE'];
+			$FINAL_ASSY_CODE = $FINAL_ASSY_CODE + $value['FINAL_ASSY_CODE'];
+			$OTHERS_CODE = $OTHERS_CODE + $value['OTHERS_CODE'];
+		}
+
+		$total = [
+			"SMT"=> $SMT,
+		    "PCB_CODE"=> $PCB_CODE,
+		    "DESIGN_CODE"=> $DESIGN_CODE,
+		    "MECHANISM_CODE"=> $MECHANISM_CODE,
+		    "ELECTRICAL_CODE"=> $ELECTRICAL_CODE,
+		    "MECHANICAL_CODE"=> $MECHANICAL_CODE,
+		    "FINAL_ASSY_CODE"=> $FINAL_ASSY_CODE,
+		    "OTHERS_CODE"=> $OTHERS_CODE
+		];
+
+		$result = [];
+		$tmp = [];
+
+		foreach ($total as $key => $value) {
+			# code...
+			$tmp['name'] = $key;
+			$tmp['total'] = $value;
+			$result[] = $tmp;
+		}
+
+		return [
+			'message' => 'OK',
+			'count' => count($result),
+			'data'=>$result
+		];
+	}
+
 }

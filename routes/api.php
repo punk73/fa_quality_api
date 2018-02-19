@@ -41,8 +41,11 @@ $api->version('v1', function (Router $api) {
     Route::get('phpinfo', 'QualityController@getPhpInfo' );
     //route for daily outputs
     Route::prefix('qualities')->group(function(){
-        Route::get('/', 'QualityController@index' );
-        Route::get('/data', 'QualityController@data' );
+        Route::get('/', 'QualityController@data' );
+        Route::get('/raw', 'QualityController@index' );
+        Route::get('/dic', 'QualityController@getDIC' );
+
+
     });
          
 });
