@@ -51,7 +51,7 @@ class QualityController extends Controller
 		if (isset($request->tanggal)) {
 			# code...
 			$tanggal = $request->tanggal;
-			$tmp = explode('-', $tanggal);
+			$tmp = explode('-', $tanggal); //pisah string jadi array 
 			
 			$request->year = $tmp[0];
 			$request->month = $tmp[1];
